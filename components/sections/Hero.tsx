@@ -86,7 +86,7 @@ export default function Hero() {
             className="font-serif italic text-foreground leading-tight"
             style={{ fontSize: "clamp(40px, 7vw, 80px)" }}
           >
-            &apos;s
+            Build a Business That&apos;s
             <br />
             <span className="text-gold-gradient">Structured, Scalable,</span>
             <br />

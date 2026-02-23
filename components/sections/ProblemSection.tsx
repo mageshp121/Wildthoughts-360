@@ -44,7 +44,7 @@ export default function ProblemSection() {
               className="font-serif italic text-foreground leading-tight mb-10"
               style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
             >
-              Most businesses plateau —
+              Most businesses plateau -
               <br />
               <span className="text-primary">not from lack of effort,</span>
               <br />

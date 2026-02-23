@@ -43,7 +43,7 @@ export default function LogoBar() {
           Trusted by businesses across retail, healthcare, education, hospitality & more
         </motion.p>
 
-        {/* Marquee — industries */}
+        {/* Marquee - industries */}
         <div className="relative overflow-hidden mb-12">
           <div
             className={`flex gap-4 ${

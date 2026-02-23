@@ -40,7 +40,7 @@ export default function IndustriesSection() {
             <span className="text-primary">industry&apos;s language.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            From retail to healthcare, startups to franchises — our frameworks
+            From retail to healthcare, startups to franchises - our frameworks
             adapt to your sector.
           </p>
         </motion.div>

@@ -57,7 +57,7 @@ export const videoTestimonials: VideoTestimonial[] = [
     location: "Palakkad, Kerala",
     industry: "Education",
     shortQuote:
-      "From chaos to clarity — they built our entire operational backbone from scratch.",
+      "From chaos to clarity - they built our entire operational backbone from scratch.",
     thumbnailUrl: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // TODO: Replace
   },
@@ -84,7 +84,7 @@ export const textTestimonials: TextTestimonial[] = [
     location: "Perinthalmanna, Kerala",
     industry: "Hospitality",
     quote:
-      "We were expanding our restaurant chain and had no idea how to franchise it properly. Wild Thoughts didn't just advise — they built the entire franchise model with us. We launched 3 new outlets in 12 months without losing quality.",
+      "We were expanding our restaurant chain and had no idea how to franchise it properly. Wild Thoughts didn't just advise - they built the entire franchise model with us. We launched 3 new outlets in 12 months without losing quality.",
     rating: 5,
   },
   {
@@ -117,7 +117,7 @@ export const textTestimonials: TextTestimonial[] = [
     location: "Kozhikode, Kerala",
     industry: "Distribution",
     quote:
-      "Our finance function was basically a spreadsheet and hope. Wild Thoughts brought in a real business control system — budgeting, cash flow visibility, and cost optimization. We saved 18% on operating costs in the first year.",
+      "Our finance function was basically a spreadsheet and hope. Wild Thoughts brought in a real business control system - budgeting, cash flow visibility, and cost optimization. We saved 18% on operating costs in the first year.",
     rating: 5,
   },
   {

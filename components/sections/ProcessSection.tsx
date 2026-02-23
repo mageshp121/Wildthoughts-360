@@ -8,13 +8,13 @@ const steps = [
     number: "01",
     title: "ASSESS",
     description:
-      "We deep-dive into your systems, people, and performance. No assumptions — just rigorous discovery.",
+      "We deep-dive into your systems, people, and performance. No assumptions - just rigorous discovery.",
   },
   {
     number: "02",
     title: "STRATEGIZE",
     description:
-      "We design a custom roadmap — not a generic report. Every recommendation is grounded in your specific context.",
+      "We design a custom roadmap - not a generic report. Every recommendation is grounded in your specific context.",
   },
   {
     number: "03",
@@ -69,7 +69,7 @@ export default function ProcessSection() {
           </p>
         </motion.div>
 
-        {/* Steps — horizontal on desktop, vertical on mobile */}
+        {/* Steps - horizontal on desktop, vertical on mobile */}
         <motion.div
           variants={{
             hidden: {},

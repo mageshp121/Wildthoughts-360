@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { serviceDomains } from "@/lib/services";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -14,11 +15,6 @@ export default function ServicesSection() {
   const [activeId, setActiveId] = useState(serviceDomains[0].id);
   const shouldReduceMotion = useReducedMotion();
   const activeService = serviceDomains.find((s) => s.id === activeId)!;
-
-  const handleBooking = () => {
-    const el = document.querySelector("#booking");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="services" className="py-24 px-6 md:px-12 lg:px-24 bg-surface">
@@ -102,8 +98,10 @@ export default function ServicesSection() {
             </div>
 
             <button
-              onClick={handleBooking}
-              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200"
+              data-cal-namespace="30min"
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view"}'
+              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 cursor-pointer"
             >
               Discuss This Domain →
             </button>
@@ -123,8 +121,10 @@ export default function ServicesSection() {
             free call.
           </p>
           <button
-            onClick={handleBooking}
-            className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200"
+            data-cal-namespace="30min"
+            data-cal-link={CAL_LINK}
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 cursor-pointer"
           >
             Book Your Free Diagnostic Call →
           </button>

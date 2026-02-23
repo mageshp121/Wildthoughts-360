@@ -52,7 +52,7 @@ export default function AboutSection() {
                 <div className="text-center">
                   <p className="text-muted text-sm">
                     {/* TODO: Replace with founder/team photo */}
-                    Team photo placeholder
+                   
                   </p>
                 </div>
               </div>

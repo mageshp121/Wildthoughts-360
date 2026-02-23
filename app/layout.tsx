@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import CalPopupInit from "@/components/ui/CalPopupInit";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable} ${instrumentSerif.variable}`}>
       <body className="font-sans bg-bg text-foreground antialiased">
+        <CalPopupInit />
         {children}
         {/* Analytics placeholder — drop in GA4 or Meta Pixel here */}
         {/* <Analytics /> */}

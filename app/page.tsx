@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <StickyCtaBar />
+      {/* <StickyCtaBar /> */}
 
       <main>
         {/* 1. Hero */}

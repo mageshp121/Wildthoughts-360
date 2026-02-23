@@ -10,6 +10,7 @@ import {
   type VideoTestimonial,
   type TextTestimonial,
 } from "@/lib/testimonials";
+import { CAL_LINK } from "@/lib/cal-config";
 
 // ─── Video card ───────────────────────────────────────────────────────────────
 function VideoCard({
@@ -209,11 +210,10 @@ export default function TestimonialsSection() {
           Ready to write your own success story?
         </p>
         <button
-          onClick={() => {
-            const el = document.querySelector("#booking");
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 shadow-lg shadow-primary/20"
+          data-cal-namespace="30min"
+          data-cal-link={CAL_LINK}
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 shadow-lg shadow-primary/20 cursor-pointer"
         >
           Book a Free Strategy Call →
         </button>

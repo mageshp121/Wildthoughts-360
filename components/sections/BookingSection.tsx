@@ -57,7 +57,7 @@ function CalEmbed() {
           },
         },
         hideEventTypeDetails: false,
-        layout: "Month_view",
+        layout: "month_view",
       });
     })();
   }, []);
@@ -67,7 +67,7 @@ function CalEmbed() {
       namespace="booking"
       calLink={CAL_LINK}
       style={{ width: "100%", height: "100%", overflow: "scroll" }}
-      config={{ layout: "Month_view" }}
+      config={{ layout: "month_view" }}
     />
   );
 }

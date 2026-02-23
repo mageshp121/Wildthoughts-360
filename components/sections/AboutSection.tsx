@@ -11,7 +11,7 @@ const credentialStats = [
   {
     icon: "🔄",
     label: "360° Under One Roof",
-    description: "Strategy, HR, sales, finance, and operations — all connected",
+    description: "Strategy, HR, sales, finance, and operations - all connected",
   },
   {
     icon: "⚙️",
@@ -103,7 +103,7 @@ export default function AboutSection() {
 
             <motion.p variants={fadeUp} className="text-foreground text-base leading-relaxed">
               Our consultants bring hands-on experience from markets across
-              India and internationally — blending global best practices with
+              India and internationally - blending global best practices with
               the realities of local business culture, regulation, and
               opportunity.
             </motion.p>
@@ -114,7 +114,7 @@ export default function AboutSection() {
             </motion.p>
             <motion.p variants={fadeUp} className="text-muted text-base leading-relaxed">
               Wild Thoughts was founded with a single conviction: that every
-              business — regardless of size or sector — deserves access to the
+              business - regardless of size or sector - deserves access to the
               same caliber of strategic and operational expertise that large
               corporations take for granted.
             </motion.p>

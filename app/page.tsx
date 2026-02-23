@@ -35,16 +35,16 @@ export default function Home() {
         {/* 5. Happiness Index */}
         <HappinessIndex />
 
-        {/* 6. How We Work — Process */}
+        {/* 6. How We Work - Process */}
         <ProcessSection />
 
-        {/* 7. Testimonials — Video + Text */}
+        {/* 7. Testimonials - Video + Text */}
         <TestimonialsSection />
 
         {/* 8. Industries */}
         <IndustriesSection />
 
-        {/* 9. Booking — Primary CTA */}
+        {/* 9. Booking - Primary CTA */}
         <BookingSection />
 
         {/* 10. About / Credibility */}

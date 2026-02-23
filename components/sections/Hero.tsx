@@ -95,7 +95,7 @@ export default function Hero() {
             className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl"
           >
             Wild Thoughts partners with founders and enterprises across India to
-            align strategy, systems, people, and performance — so your business
+            align strategy, systems, people, and performance - so your business
             grows without breaking.
           </motion.p>
 

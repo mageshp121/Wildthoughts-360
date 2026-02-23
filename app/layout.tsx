@@ -40,7 +40,7 @@ export default function RootLayout({
       <body className="font-sans bg-bg text-foreground antialiased">
         <CalPopupInit />
         {children}
-        {/* Analytics placeholder — drop in GA4 or Meta Pixel here */}
+        {/* Analytics placeholder - drop in GA4 or Meta Pixel here */}
         {/* <Analytics /> */}
       </body>
     </html>

@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
           <p className="text-muted text-sm max-w-md leading-relaxed">
             Transforming ideas into structured, scalable, and successful
-            enterprises — through strategy, systems, people, and performance.
+            enterprises - through strategy, systems, people, and performance.
           </p>
         </div>
 

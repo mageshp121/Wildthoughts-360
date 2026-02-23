@@ -6,6 +6,7 @@ import { Shield, Clock, Globe, CheckCircle } from "lucide-react";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import { faqs } from "@/lib/faqs";
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const whatToExpect = [
   "A full audit of your current challenges and bottlenecks",
@@ -16,7 +17,7 @@ const whatToExpect = [
 
 const trustSignals = [
   { icon: Shield, label: "100% Confidential" },
-  { icon: Clock, label: "60-minute session" },
+  { icon: Clock, label: "30-minute strategy session" },
   { icon: Globe, label: "In-person (Perinthalmanna) or video call" },
 ];
 
@@ -25,28 +26,48 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-// Cal.com calLink expects a slug like "username/event" — strip full URL if provided
-const raw = process.env.NEXT_PUBLIC_CAL_LINK || "wild-thoughts/strategy-call";
-const CAL_LINK = raw.replace(/^https?:\/\/cal\.com\//, "");
-
 function CalEmbed() {
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: "strategy-call" });
+      const cal = await getCalApi({ namespace: "booking" });
       cal("ui", {
         theme: "light",
+        cssVarsPerTheme: {
+          light: {
+            "cal-brand": "#636B2F",
+            "cal-brand-emphasis": "#3D4127",
+            "cal-brand-text": "#FFFFFF",
+            "cal-bg": "#FFFFFF",
+            "cal-bg-muted": "#F4F6E8",
+            "cal-border": "#C8D2A0",
+            "cal-border-emphasis": "#BAC095",
+            "cal-text": "#3D4127",
+            "cal-text-muted": "#7D8455",
+          },
+          dark: {
+            "cal-brand": "#BAC095",
+            "cal-brand-emphasis": "#D4DE95",
+            "cal-brand-text": "#3D4127",
+            "cal-bg": "#3D4127",
+            "cal-bg-muted": "#4A5030",
+            "cal-border": "#636B2F",
+            "cal-border-emphasis": "#7A8338",
+            "cal-text": "#F4F6E8",
+            "cal-text-muted": "#BAC095",
+          },
+        },
         hideEventTypeDetails: false,
-        layout: "month_view",
+        layout: "Month_view",
       });
     })();
   }, []);
 
   return (
     <Cal
-      namespace="strategy-call"
+      namespace="booking"
       calLink={CAL_LINK}
-      style={{ width: "100%", height: "100%", minHeight: "480px", overflow: "scroll" }}
-      config={{ layout: "month_view", theme: "light" }}
+      style={{ width: "100%", height: "100%", overflow: "scroll" }}
+      config={{ layout: "Month_view" }}
     />
   );
 }
@@ -55,10 +76,7 @@ export default function BookingSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section
-      id="booking"
-      className="py-24 px-6 md:px-12 lg:px-24 bg-surface-2"
-    >
+    <section id="booking" className="py-24 px-6 md:px-12 lg:px-24 bg-surface-2">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.div
@@ -68,6 +86,9 @@ export default function BookingSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-14"
         >
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium tracking-widest uppercase mb-5">
+            Free Strategy Call
+          </span>
           <h2
             className="font-serif italic text-foreground leading-tight mb-4"
             style={{ fontSize: "clamp(32px, 5vw, 60px)" }}
@@ -77,94 +98,117 @@ export default function BookingSection() {
             <span className="text-primary">of your business.</span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Book a free 60-minute strategy call. No pitch, no pressure — just
+            Book a free 30-minute strategy call. No pitch, no pressure - just
             clarity.
           </p>
         </motion.div>
 
-        {/* FAQ above the fold */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12 max-w-3xl mx-auto"
-        >
-          <p className="text-muted text-sm uppercase tracking-widest mb-4 text-center">
-            Common questions
-          </p>
-          <FaqAccordion faqs={faqs} />
-        </motion.div>
-
-        {/* Main booking layout */}
+        {/* Content: What you'll get + Session details */}
         <motion.div
           variants={{
             hidden: {},
             show: {
-              transition: { staggerChildren: shouldReduceMotion ? 0 : 0.15 },
+              transition: { staggerChildren: shouldReduceMotion ? 0 : 0.12 },
             },
           }}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid md:grid-cols-2 gap-10 items-start"
+          className="grid md:grid-cols-2 gap-6 mb-10"
         >
-          {/* Left: copy */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-7">
-            <div>
-              <p className="text-muted text-xs uppercase tracking-widest mb-3">
-                What you&apos;ll get
-              </p>
-              <div className="space-y-3">
-                {whatToExpect.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle
-                      size={16}
-                      className="text-primary flex-shrink-0 mt-0.5"
-                    />
-                    <span className="text-foreground text-sm leading-relaxed">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Trust signals */}
-            <div className="border-t border-border-color pt-6">
-              <p className="text-muted text-xs uppercase tracking-widest mb-4">
-                Session details
-              </p>
-              <div className="space-y-3">
-                {trustSignals.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-3">
-                    <Icon size={15} className="text-primary flex-shrink-0" />
-                    <span className="text-muted text-sm">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Urgency */}
-            <div className="p-4 rounded-xl border border-primary/20 bg-primary/5">
-              <p className="text-primary text-sm font-medium">
-                ⚡ Limited slots available each month
-              </p>
-              <p className="text-muted text-xs mt-1">
-                We keep our calendar selective to ensure every client gets full
-                attention. Book early.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right: Cal.com embed */}
+          {/* What you'll get */}
           <motion.div
             variants={fadeUp}
-            className="rounded-2xl overflow-hidden border border-border-color bg-surface"
-            style={{ minHeight: "520px" }}
+            className="bg-surface border border-border-color rounded-2xl p-7 flex flex-col gap-5"
           >
-            <CalEmbed />
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                <CheckCircle size={14} className="text-primary" />
+              </span>
+              <p className="text-foreground font-semibold text-sm uppercase tracking-widest">
+                What you&apos;ll get
+              </p>
+            </div>
+            <div className="space-y-3.5">
+              {whatToExpect.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle size={11} className="text-primary" />
+                  </span>
+                  <span className="text-foreground text-sm leading-relaxed">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
+
+          {/* Session details + Urgency */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-4">
+            {/* Session details card */}
+            <div className="bg-surface border border-border-color rounded-2xl p-7 flex-1">
+              <div className="flex items-center gap-2.5 mb-5">
+                <span className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Clock size={14} className="text-primary" />
+                </span>
+                <p className="text-foreground font-semibold text-sm uppercase tracking-widest">
+                  Session details
+                </p>
+              </div>
+              <div className="space-y-4">
+                {trustSignals.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-3">
+                    <span className="w-9 h-9 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center flex-shrink-0">
+                      <Icon size={16} className="text-primary" />
+                    </span>
+                    <span className="text-foreground text-sm font-medium">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Urgency card */}
+            <div className="rounded-2xl border border-primary/30 bg-primary/8 p-5 flex items-start gap-4">
+              <span className="text-2xl leading-none mt-0.5">⚡</span>
+              <div>
+                <p className="text-primary text-sm font-semibold mb-1">
+                  Limited slots available each month
+                </p>
+                <p className="text-muted text-xs leading-relaxed">
+                  We keep our calendar selective to ensure every client gets
+                  full attention. Book early.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Cal.com embed - full width */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="rounded-2xl overflow-hidden border border-border-color bg-surface shadow-lg shadow-primary/5 mb-16"
+          style={{ minHeight: "580px" }}
+        >
+          <div className="pt-6">
+            <CalEmbed />
+          </div>
+        </motion.div>
+
+        {/* FAQ */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-3xl mx-auto"
+        >
+          <p className="text-muted text-sm uppercase tracking-widest mb-4 text-center">
+            Common questions
+          </p>
+          <FaqAccordion faqs={faqs} />
         </motion.div>
       </div>
     </section>

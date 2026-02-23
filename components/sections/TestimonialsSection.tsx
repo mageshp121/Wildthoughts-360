@@ -134,7 +134,7 @@ export default function TestimonialsSection() {
         </motion.div>
       </div>
 
-      {/* ── Video testimonials — infinite horizontal scroll ── */}
+      {/* ── Video testimonials - infinite horizontal scroll ── */}
       <div className="mb-20">
         <div className="relative">
           {/* Fade edges for polished "infinite" feel */}
@@ -169,7 +169,7 @@ export default function TestimonialsSection() {
         <div className="flex-1 h-px bg-border-color" />
       </div>
 
-      {/* ── Text testimonials — two rows scrolling in opposite directions ── */}
+      {/* ── Text testimonials - two rows scrolling in opposite directions ── */}
       <div className="space-y-5 mb-16">
         {/* Row 1 → scrolls left */}
         <div className="relative">

@@ -87,7 +87,7 @@ export default function ProblemSection() {
               of a growing business that needs structure.
             </p>
             <p className="text-muted text-base leading-relaxed">
-              Wild Thoughts exists to close that gap — with proven frameworks,
+              Wild Thoughts exists to close that gap - with proven frameworks,
               people-first systems, and our proprietary{" "}
               <span className="text-primary font-medium">Happiness Index</span>{" "}
               that makes your organization both profitable and genuinely

@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin, Mail, Phone } from "lucide-react";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const serviceLinks = [
   { label: "Strategy & Business Architecture", href: "#services" },
@@ -36,7 +37,7 @@ export default function Footer() {
         {/* Top: logo + tagline */}
         <div className="mb-14">
           <div className="flex items-center gap-3 mb-3">
-            <span className="font-serif italic text-white text-2xl">
+            <span className="font-serif italic text-foreground text-2xl">
               Wild Thoughts
             </span>
             <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium">
@@ -80,20 +81,33 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNav(link.href);
-                    }}
-                    className="text-muted hover:text-primary text-sm transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {quickLinks.map((link) =>
+                link.href === "#booking" ? (
+                  <li key={link.label}>
+                    <button
+                      data-cal-namespace="30min"
+                      data-cal-link={CAL_LINK}
+                      data-cal-config='{"layout":"month_view"}'
+                      className="text-muted hover:text-primary text-sm transition-colors duration-200 cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNav(link.href);
+                      }}
+                      className="text-muted hover:text-primary text-sm transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -134,16 +148,14 @@ export default function Footer() {
 
             {/* CTA in footer */}
             <div className="mt-8">
-              <a
-                href="#booking"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNav("#booking");
-                }}
-                className="inline-flex items-center bg-primary text-bg font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200"
+              <button
+                data-cal-namespace="30min"
+                data-cal-link={CAL_LINK}
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                className="inline-flex items-center bg-primary text-bg font-bold px-6 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 cursor-pointer"
               >
                 Book Free Strategy Call
-              </a>
+              </button>
             </div>
           </div>
         </div>

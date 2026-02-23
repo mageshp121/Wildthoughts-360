@@ -25,10 +25,9 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-// Cal.com username comes from env: NEXT_PUBLIC_CAL_LINK
-// TODO: Set NEXT_PUBLIC_CAL_LINK to your actual Cal.com event link
-const CAL_LINK =
-  process.env.NEXT_PUBLIC_CAL_LINK || "wild-thoughts/strategy-call";
+// Cal.com calLink expects a slug like "username/event" — strip full URL if provided
+const raw = process.env.NEXT_PUBLIC_CAL_LINK || "wild-thoughts/strategy-call";
+const CAL_LINK = raw.replace(/^https?:\/\/cal\.com\//, "");
 
 function CalEmbed() {
   useEffect(() => {

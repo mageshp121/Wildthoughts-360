@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -9,11 +10,6 @@ const fadeUp = {
 
 export default function FinalCTA() {
   const shouldReduceMotion = useReducedMotion();
-
-  const handleBooking = () => {
-    const el = document.querySelector("#booking");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="relative py-32 px-6 md:px-12 overflow-hidden bg-bg noise-overlay">
@@ -75,8 +71,10 @@ export default function FinalCTA() {
 
           <motion.div variants={fadeUp} className="flex flex-col items-center gap-3">
             <button
-              onClick={handleBooking}
-              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-10 py-5 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-all duration-200 shadow-2xl shadow-primary/30 hover:scale-[1.02] hover:shadow-primary/40"
+              data-cal-namespace="30min"
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-10 py-5 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-all duration-200 shadow-2xl shadow-primary/30 hover:scale-[1.02] hover:shadow-primary/40 cursor-pointer"
             >
               Book My Free Call Now →
             </button>

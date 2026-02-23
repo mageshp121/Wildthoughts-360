@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const steps = [
   {
@@ -127,11 +128,10 @@ export default function ProcessSection() {
           className="text-center mt-16"
         >
           <button
-            onClick={() => {
-              const el = document.querySelector("#booking");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200"
+            data-cal-namespace="30min"
+            data-cal-link={CAL_LINK}
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 cursor-pointer"
           >
             Start Your Transformation →
           </button>

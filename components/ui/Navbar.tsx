@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -75,16 +76,14 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#booking"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#booking");
-              }}
-              className="bg-primary text-bg font-bold px-5 py-2.5 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200"
+            <button
+              data-cal-namespace="30min"
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view"}'
+              className="bg-primary text-bg font-bold px-5 py-2.5 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors duration-200 cursor-pointer"
             >
               Book Free Call
-            </a>
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -108,29 +107,41 @@ export default function Navbar() {
               className="md:hidden overflow-hidden bg-surface border-b border-border-color"
             >
               <nav className="flex flex-col p-6 gap-5">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
-                    className="text-foreground hover:text-primary text-base transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <a
-                  href="#booking"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick("#booking");
-                  }}
-                  className="mt-2 inline-flex justify-center bg-primary text-bg font-bold px-6 py-3 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors"
+                {navLinks.map((link) =>
+                  link.href === "#booking" ? (
+                    <button
+                      key={link.href}
+                      data-cal-namespace="30min"
+                      data-cal-link={CAL_LINK}
+                      data-cal-config='{"layout":"month_view"}'
+                      onClick={() => setMobileOpen(false)}
+                      className="text-foreground hover:text-primary text-base transition-colors text-left cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }}
+                      className="text-foreground hover:text-primary text-base transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+                <button
+                  data-cal-namespace="30min"
+                  data-cal-link={CAL_LINK}
+                  data-cal-config='{"layout":"month_view"}'
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-2 inline-flex justify-center bg-primary text-bg font-bold px-6 py-3 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-colors cursor-pointer"
                 >
                   Book Free Call
-                </a>
+                </button>
               </nav>
             </motion.div>
           )}

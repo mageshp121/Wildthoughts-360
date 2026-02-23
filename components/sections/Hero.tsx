@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { CAL_LINK } from "@/lib/cal-config";
 
 const trustItems = [
   "No commitment required",
@@ -30,11 +31,6 @@ export default function Hero() {
       y: 0,
       transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     },
-  };
-
-  const handleBooking = () => {
-    const el = document.querySelector("#booking");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleServices = () => {
@@ -109,8 +105,10 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center gap-4 mt-2"
           >
             <button
-              onClick={handleBooking}
-              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02]"
+              data-cal-namespace="30min"
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="inline-flex items-center gap-2 bg-primary text-bg font-bold px-9 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-primaryLight transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] cursor-pointer"
             >
               Book Your Free Strategy Call
               <ArrowRight size={16} />

@@ -72,7 +72,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <motion.div variants={itemVariants}>
             <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium tracking-widest uppercase">
-              360° Business Transformation · Perinthalmanna, India
+              360° Business Transformation
             </span>
           </motion.div>
 

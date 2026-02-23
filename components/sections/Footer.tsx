@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
           <p className="text-muted text-sm max-w-md leading-relaxed">
             Transforming ideas into structured, scalable, and successful
-            enterprises — through strategy, systems, people, and performance.
+            enterprises - through strategy, systems, people, and performance.
           </p>
         </div>
 
@@ -118,11 +118,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={15} className="text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-muted text-sm leading-relaxed">
-                  Perinthalmanna, Kerala, India
+                {/* <MapPin size={15} className="text-primary flex-shrink-0 mt-0.5" /> */}
+                {/* <span className="text-muted text-sm leading-relaxed"> */}
+                  {/* Perinthalmanna, Kerala, India */}
                   {/* TODO: Add full address */}
-                </span>
+                {/* </span> */}
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={15} className="text-primary flex-shrink-0" />
@@ -166,9 +166,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Wild Thoughts Consultancy Services.
             All rights reserved.
           </p>
-          <p className="text-muted text-xs">
+          {/* <p className="text-muted text-xs">
             Perinthalmanna, Kerala, India
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

@@ -72,7 +72,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <motion.div variants={itemVariants}>
             <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium tracking-widest uppercase">
-              360° Business Transformation · Perinthalmanna, India
+              360° Business Transformation
             </span>
           </motion.div>
 
@@ -95,7 +95,7 @@ export default function Hero() {
             className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl"
           >
             Wild Thoughts partners with founders and enterprises across India to
-            align strategy, systems, people, and performance — so your business
+            align strategy, systems, people, and performance - so your business
             grows without breaking.
           </motion.p>
 

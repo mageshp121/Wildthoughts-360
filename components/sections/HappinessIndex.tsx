@@ -19,7 +19,7 @@ const metrics = [
     icon: "🤝",
     title: "Collaboration Enhancement",
     description:
-      "Design workflows that build trust and reduce silos — so teams move faster and work better together.",
+      "Design workflows that build trust and reduce silos - so teams move faster and work better together.",
   },
   {
     icon: "📉",
@@ -72,7 +72,7 @@ export default function HappinessIndex() {
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             Our proprietary framework for building organizations that perform
             because their people thrive. Because performance isn&apos;t
-            separate from culture — it&apos;s a product of it.
+            separate from culture - it&apos;s a product of it.
           </p>
         </motion.div>
 
@@ -118,11 +118,11 @@ export default function HappinessIndex() {
           className="border-l-2 border-primary pl-6 py-2 max-w-3xl mx-auto text-center"
         >
           <p className="text-foreground text-lg md:text-xl leading-relaxed italic mb-3">
-            &ldquo;Because a high-performing organization is a happy one — and
+            &ldquo;Because a high-performing organization is a happy one - and
             we have the framework to prove it.&rdquo;
           </p>
           <cite className="text-primary text-sm font-medium not-italic">
-            — Wild Thoughts Consultancy
+            - Wild Thoughts Consultancy
           </cite>
         </motion.blockquote>
       </div>

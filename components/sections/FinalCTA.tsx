@@ -65,7 +65,7 @@ export default function FinalCTA() {
           </motion.h2>
 
           <motion.p variants={fadeUp} className="text-muted text-lg max-w-xl">
-            Book your free strategy call today and get a custom action plan —
+            Book your free strategy call today and get a custom action plan -
             at no cost, no commitment.
           </motion.p>
 
